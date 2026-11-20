@@ -35,7 +35,7 @@ SHORT = {"en": "EN", "ru": "RU", "de": "DE", "es": "ES", "fr": "FR", "pt-BR": "P
 T = {}
 
 T["en"] = dict(
-    privacy="Privacy Policy", support="Support", language="Language",
+    privacy="Privacy Policy", support="Support", language="Language", theme="Switch between light and dark theme",
     footer="MiniCars — a catalog for your diecast model collection.",
     home_lead="Keep your diecast model collection and wishlist on your iPhone and iPad: photos, prices, purchase places, voice notes and statistics.",
     icon_alt="MiniCars app icon",
@@ -100,7 +100,7 @@ T["en"] = dict(
 )
 
 T["ru"] = dict(
-    privacy="Политика конфиденциальности", support="Поддержка", language="Язык",
+    privacy="Политика конфиденциальности", support="Поддержка", language="Язык", theme="Переключить светлую и тёмную тему",
     footer="MiniCars — каталог вашей коллекции масштабных моделей.",
     home_lead="Ваша коллекция масштабных моделей и вишлист на iPhone и iPad: фото, цены, места покупки, голосовые заметки и статистика.",
     icon_alt="Иконка приложения MiniCars",
@@ -165,7 +165,7 @@ T["ru"] = dict(
 )
 
 T["de"] = dict(
-    privacy="Datenschutzerklärung", support="Support", language="Sprache",
+    privacy="Datenschutzerklärung", support="Support", language="Sprache", theme="Zwischen hellem und dunklem Design wechseln",
     footer="MiniCars – ein Katalog für deine Modellauto-Sammlung.",
     home_lead="Deine Modellauto-Sammlung und Wunschliste auf iPhone und iPad: Fotos, Preise, Kauforte, Sprachnotizen und Statistiken.",
     icon_alt="App-Symbol von MiniCars",
@@ -230,7 +230,7 @@ T["de"] = dict(
 )
 
 T["es"] = dict(
-    privacy="Política de privacidad", support="Soporte", language="Idioma",
+    privacy="Política de privacidad", support="Soporte", language="Idioma", theme="Cambiar entre tema claro y oscuro",
     footer="MiniCars: un catálogo para tu colección de coches a escala.",
     home_lead="Tu colección de coches a escala y tu lista de deseos en el iPhone y el iPad: fotos, precios, lugares de compra, notas de voz y estadísticas.",
     icon_alt="Icono de la app MiniCars",
@@ -295,7 +295,7 @@ T["es"] = dict(
 )
 
 T["fr"] = dict(
-    privacy="Politique de confidentialité", support="Assistance", language="Langue",
+    privacy="Politique de confidentialité", support="Assistance", language="Langue", theme="Basculer entre thème clair et sombre",
     footer="MiniCars — un catalogue pour votre collection de miniatures.",
     home_lead="Votre collection de miniatures et votre liste d’envies sur iPhone et iPad : photos, prix, lieux d’achat, notes vocales et statistiques.",
     icon_alt="Icône de l’app MiniCars",
@@ -360,7 +360,7 @@ T["fr"] = dict(
 )
 
 T["pt-BR"] = dict(
-    privacy="Política de Privacidade", support="Suporte", language="Idioma",
+    privacy="Política de Privacidade", support="Suporte", language="Idioma", theme="Alternar entre tema claro e escuro",
     footer="MiniCars — um catálogo para a sua coleção de miniaturas.",
     home_lead="Sua coleção de miniaturas e sua lista de desejos no iPhone e no iPad: fotos, preços, locais de compra, notas de voz e estatísticas.",
     icon_alt="Ícone do app MiniCars",
@@ -476,6 +476,8 @@ def page(lang, slug, title, description, body):
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/style.css">
+<script>try{{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}}catch(e){{}}</script>
+<script src="/assets/theme.js" defer></script>
 </head>
 <body>
 <header class="site">
@@ -484,13 +486,19 @@ def page(lang, slug, title, description, body):
     <nav class="links">
       {nav("privacy", t["privacy"])}
       {nav("support", t["support"])}
+    </nav>
+    <div class="controls">
       <details class="langs">
         <summary aria-label="{t["language"]}">{SHORT[lang]}</summary>
         <div class="menu">
 {language_menu(lang, slug)}
         </div>
       </details>
-    </nav>
+      <button type="button" class="theme-toggle" aria-label="{t["theme"]}" title="{t["theme"]}">
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 <main>
