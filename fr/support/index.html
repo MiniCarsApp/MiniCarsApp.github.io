@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assistance — MiniCars</title>
+<meta name="description" content="MiniCars — Assistance">
+<link rel="alternate" hreflang="en" href="/support/">
+<link rel="alternate" hreflang="ru" href="/ru/support/">
+<link rel="alternate" hreflang="de" href="/de/support/">
+<link rel="alternate" hreflang="es" href="/es/support/">
+<link rel="alternate" hreflang="fr" href="/fr/support/">
+<link rel="alternate" hreflang="pt-BR" href="/pt-br/support/">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="/fr/"><img src="/assets/icon.png" alt="" width="32" height="32">MiniCars</a>
+    <nav class="links">
+      <a href="/fr/privacy/">Politique de confidentialité</a>
+      <a href="/fr/support/" aria-current="page">Assistance</a>
+      <details class="langs">
+        <summary aria-label="Langue">FR</summary>
+        <div class="menu">
+          <a href="/support/" hreflang="en" lang="en">English</a>
+          <a href="/ru/support/" hreflang="ru" lang="ru">Русский</a>
+          <a href="/de/support/" hreflang="de" lang="de">Deutsch</a>
+          <a href="/es/support/" hreflang="es" lang="es">Español</a>
+          <a href="/fr/support/" hreflang="fr" lang="fr" aria-current="true">Français</a>
+          <a href="/pt-br/support/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <h1>Assistance</h1>
+    <p class="lead">Une question, une idée ou un problème avec MiniCars ? Remplissez le formulaire et nous vous répondrons par e-mail.</p>
+    <div class="card">
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST"
+            data-sending="Envoi…" data-ok="Merci ! Votre message a été envoyé. Nous répondons généralement sous quelques jours." data-err="Le message n’a pas pu être envoyé. Réessayez plus tard ou écrivez-nous par e-mail.">
+        <input type="hidden" name="access_key" value="1af8ef65-c6dd-42a8-872e-474a42849f86">
+        <input type="hidden" name="subject" value="Demande d’assistance MiniCars">
+        <input type="hidden" name="from_name" value="MiniCars website">
+        <input type="hidden" name="language" value="fr">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field">
+          <label for="name">Votre nom</label>
+          <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required>
+        </div>
+        <div class="field">
+          <label for="email">Votre e-mail (pour la réponse)</label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="200" required>
+        </div>
+        <div class="field">
+          <label for="topic">Sujet</label>
+          <select id="topic" name="topic">
+            <option>Question</option>
+            <option>Problème ou bug</option>
+            <option>Idée ou suggestion</option>
+            <option>Confidentialité</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" maxlength="5000" required></textarea>
+        </div>
+        <p class="hint">Nous utilisons votre nom, votre e-mail et votre message uniquement pour vous répondre — voir la <a href="/fr/privacy/">Politique de confidentialité</a>.</p>
+        <button type="submit">Envoyer</button>
+        <p id="form-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="hint">Ou écrivez directement à <a href="mailto:minicarsapp@proton.me">minicarsapp@proton.me</a>. Si quelque chose ne fonctionne pas, indiquez votre appareil et votre version d’iOS.</p>
+    </div>
+
+    <h2>Questions fréquentes</h2>
+    <h3>Où est stockée ma collection ?</h3>
+    <p>Uniquement sur votre appareil. Pour en garder une copie, activez la sauvegarde iCloud ou exportez la collection dans l’app : Réglages → Exporter en CSV.</p>
+    <h3>Une fonctionnalité demande un accès que j’ai refusé.</h3>
+    <p>Ouvrez Réglages → MiniCars sur votre appareil et activez l’autorisation. Les Réglages de l’app proposent aussi le bouton « Ouvrir les Réglages iOS ».</p>
+    <h3>Comment fonctionne « Comparer à proximité » ?</h3>
+    <p>Les deux personnes ouvrent « Comparer à proximité » dans MiniCars avec le Bluetooth activé. Quand l’une envoie une demande et que l’autre accepte, l’app indique quels modèles d’une liste d’envies se trouvent dans l’autre collection. Seuls des textes sont envoyés, sans photos ni prix. Voir la <a href="/fr/privacy/">Politique de confidentialité</a>.</p>
+    <h3>Comment supprimer mes données ?</h3>
+    <p>Supprimez les modèles dans l’app, ou supprimez l’app pour effacer toutes ses données de l’appareil.</p>
+    <script src="/assets/form.js" defer></script>
+  </div>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <span>MiniCars — un catalogue pour votre collection de miniatures.</span>
+    <span>© 2026 MiniCars · <a href="mailto:minicarsapp@proton.me">minicarsapp@proton.me</a></span>
+  </div>
+</footer>
+</body>
+</html>
