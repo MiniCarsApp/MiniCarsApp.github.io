@@ -3,6 +3,7 @@
 
 Usage: python3 tools/build.py .   (from the repository root)
 """
+import hashlib
 import os
 import sys
 
@@ -26,6 +27,13 @@ LANGS = [
     ("pt-BR", "/pt-br/", "Português (Brasil)"),
 ]
 PATH = {code: path for code, path, _ in LANGS}
+
+
+def asset(name):
+    """Asset URL with a content hash, so browsers fetch the new file after an update
+    (GitHub Pages lets browsers cache files for 10 minutes)."""
+    with open(os.path.join(OUT, "assets", name), "rb") as fh:
+        return f"/assets/{name}?v={hashlib.md5(fh.read()).hexdigest()[:8]}"
 SHORT = {"en": "EN", "ru": "RU", "de": "DE", "es": "ES", "fr": "FR", "pt-BR": "PT"}
 
 # ---------------------------------------------------------------------------
@@ -475,9 +483,9 @@ def page(lang, slug, title, description, body):
 {alternates}
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="{asset("style.css")}">
 <script>try{{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}}catch(e){{}}</script>
-<script src="/assets/theme.js" defer></script>
+<script src="{asset("theme.js")}" defer></script>
 </head>
 <body>
 <header class="site">
@@ -620,7 +628,7 @@ def support(lang):
 
     <h2>{t["faq"]}</h2>
 {faqs}
-    <script src="/assets/form.js" defer></script>"""
+    <script src="{asset("form.js")}" defer></script>"""
 
 
 def write(path, html):
